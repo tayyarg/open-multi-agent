@@ -1,0 +1,54 @@
+[package]
+name = "open-multi-agent"
+version = "0.1.0"
+edition = "2021"
+description = "Production-grade multi-agent orchestration framework. Model-agnostic, supports team collaboration, task scheduling, and inter-agent communication."
+license = "MIT"
+keywords = ["ai", "agent", "multi-agent", "orchestration", "llm"]
+categories = ["api-bindings", "asynchronous"]
+
+[dependencies]
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# HTTP client for LLM APIs
+reqwest = { version = "0.12", features = ["json", "stream"] }
+
+# Async streams
+futures = "0.3"
+async-trait = "0.1"
+tokio-stream = "0.1"
+
+# Misc
+uuid = { version = "1", features = ["v4"] }
+chrono = { version = "0.4", features = ["serde"] }
+regex = "1"
+glob = "0.3"
+thiserror = "2"
+
+# JSON Schema generation (Rust equivalent of Zod)
+schemars = "0.8"
+
+[[example]]
+name = "single_agent"
+path = "examples/01_single_agent.rs"
+
+[[example]]
+name = "team_collaboration"
+path = "examples/02_team_collaboration.rs"
+
+[[example]]
+name = "task_pipeline"
+path = "examples/03_task_pipeline.rs"
+
+[[example]]
+name = "multi_model_team"
+path = "examples/04_multi_model_team.rs"
+
+[[example]]
+name = "copilot_test"
+path = "examples/05_copilot_test.rs"
